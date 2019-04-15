@@ -1,0 +1,19 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+android {
+    defaultConfig {
+        buildConfigField "String", "BASE_URL", '"https://demo.bankplus.ru/mobws/json/"'
+    }
+}
+
+dependencies {
+    rootProject.remoteLibs.each {
+        add(it.config, it.dependency, it.options)
+    }
+    rootProject.androidLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.androidTestLibs.each {
+        add(it.config, it.dependency)
+    }
+}

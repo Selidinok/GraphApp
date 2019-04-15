@@ -1,0 +1,10 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+dependencies {
+    rootProject.androidLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.coreLibs.each {
+        add(it.config, it.dependency)
+    }
+}

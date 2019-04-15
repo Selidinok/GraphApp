@@ -1,0 +1,11 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    rootProject.baseLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.testLibs.each {
+        add(it.config, it.dependency)
+    }
+}

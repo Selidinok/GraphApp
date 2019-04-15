@@ -1,0 +1,5 @@
+<resources>
+    <string name="form_description">Set graph count</string>
+    <string name="form_count_hint">count</string>
+    <string name="form_ok_button_text">Go</string>
+</resources>

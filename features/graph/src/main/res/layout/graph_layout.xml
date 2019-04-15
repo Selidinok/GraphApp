@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/graph_cell_border">
+
+        <TableRow
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/number"
+                style="@style/graph_TableStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/graph_first_column" />
+
+            <TextView
+                android:id="@+id/xColumn"
+                style="@style/graph_TableStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/graph_second_column" />
+
+            <TextView
+                android:id="@+id/yColumn"
+                style="@style/graph_TableStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/graph_third_column" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

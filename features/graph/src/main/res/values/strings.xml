@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Graph</string>
+    <string name="graph_first_column">Number</string>
+    <string name="graph_second_column">X</string>
+    <string name="graph_third_column">Y</string>
+</resources>

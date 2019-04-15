@@ -1,0 +1,54 @@
+rootProject.androidLibraryPlugins.each {
+    apply plugin: it
+}
+
+android {
+    compileSdkVersion compileSDK
+
+    defaultConfig {
+        minSdkVersion minSDK
+        targetSdkVersion compileSDK
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary true
+
+        androidExtensions {
+            experimental = true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+        unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    rootProject.baseLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.testLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.androidTestLibs.each {
+        add(it.config, it.dependency)
+    }
+}

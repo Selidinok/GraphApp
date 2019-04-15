@@ -1,0 +1,14 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+android {
+    resourcePrefix 'graph_'
+}
+
+dependencies {
+    rootProject.androidLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.graphLibs.each {
+        add(it.config, it.dependency)
+    }
+}

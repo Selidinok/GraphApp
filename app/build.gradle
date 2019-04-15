@@ -1,0 +1,50 @@
+rootProject.appPlugins.each {
+    apply plugin: it
+}
+
+android {
+    compileSdkVersion compileSDK
+    defaultConfig {
+        applicationId "com.pointer.memo"
+        minSdkVersion minSDK
+        targetSdkVersion compileSDK
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    rootProject.baseLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.androidLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.appLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.testLibs.each {
+        add(it.config, it.dependency)
+    }
+    rootProject.androidTestLibs.each {
+        add(it.config, it.dependency)
+    }
+}
