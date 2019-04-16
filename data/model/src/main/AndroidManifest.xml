@@ -1,12 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.graphapp.remote">
+    package="com.example.graphapp.model">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-    <application>
-        <meta-data
-            android:name="android.security.net.config"
-            android:resource="@xml/network_security_config" />
-    </application>
 </manifest>
