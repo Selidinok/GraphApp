@@ -32,8 +32,8 @@ ext {
     //Result
     result = '2.1.0'
 
-    //Dots view
-    dots = '3.0.3'
+    //Chart
+    chart = 'v3.1.0'
 
     //Test libraries
     junit = "4.12"
@@ -156,6 +156,9 @@ ext {
             //Project
             [config: "implementation", dependency: project(":core")],
             [config: "implementation", dependency: project(":data:repository")],
+
+            //Implementation
+            [config: "implementation", dependency: "com.github.PhilJay:MPAndroidChart:$chart"],
     ]
 //
 //    screenRegisterLibs = [

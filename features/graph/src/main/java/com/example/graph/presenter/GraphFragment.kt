@@ -4,6 +4,11 @@ import android.os.Bundle
 import android.view.View
 import com.example.graph.R
 import com.example.model.domain.Point
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import com.pointer.core.base.BaseFragment
 import com.pointer.core.consts.ScreenEnum
 import com.pointer.core.extensions.extraNotNull
@@ -24,14 +29,35 @@ class GraphFragment : BaseFragment() {
             val row = createRow(index, point)
             table.addView(row)
         }
+        setupChart(points)
     }
 
-    private fun createRow(index: Int, point: Point): View {
-        return layoutInflater.inflate(R.layout.graph_table_item, null).apply {
+    private fun createRow(index: Int, point: Point): View =
+        layoutInflater.inflate(R.layout.graph_table_item, null).apply {
             number.text = index.toString()
             xColumn.text = point.x
             yColumn.text = point.y
         }
 
+    private fun setupChart(points: Array<Point>) {
+        val entries = points.map { Entry(it.x.toFloat(), it.y.toFloat()) }
+        val dataSet = LineDataSet(entries, "Points")
+        val lineData = LineData(dataSet)
+        chart.apply {
+            data = lineData
+            description.isEnabled = false
+            legend.isEnabled = false
+            setScaleEnabled(true)
+            xAxis.apply {
+                position = XAxis.XAxisPosition.BOTTOM
+                setDrawAxisLine(true)
+                setDrawGridLines(false)
+            }
+            axisLeft.apply {
+                setPosition(YAxis.YAxisLabelPosition.INSIDE_CHART)
+                setDrawGridLines(false)
+                setDrawAxisLine(true)
+            }
+        }
     }
 }

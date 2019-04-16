@@ -5,7 +5,7 @@ rootProject.appPlugins.each {
 android {
     compileSdkVersion compileSDK
     defaultConfig {
-        applicationId "com.pointer.memo"
+        applicationId "com.example.graphapp"
         minSdkVersion minSDK
         targetSdkVersion compileSDK
         versionCode rootProject.versionCode
